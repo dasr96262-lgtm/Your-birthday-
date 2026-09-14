@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ✨</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#ffe8f0,#e9e7ff,#e4f7ff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  color:#333;
+}
+.card{
+  width:min(90%,420px);
+  padding:32px 24px;
+  text-align:center;
+  background:rgba(255,255,255,.82);
+  border-radius:28px;
+  box-shadow:0 15px 45px rgba(0,0,0,.15);
+  animation:appear 1s ease;
+  position:relative;
+  z-index:2;
+}
+h1{font-size:38px;margin:8px 0 12px}
+h2{font-size:24px;margin:0 0 18px}
+p{font-size:16px;line-height:1.7;margin:12px 0}
+.small{font-size:13px;opacity:.65;margin-top:22px}
+button{
+  border:0;
+  padding:13px 22px;
+  border-radius:30px;
+  font-size:16px;
+  cursor:pointer;
+  background:#fff;
+  box-shadow:0 5px 18px rgba(0,0,0,.12);
+}
+#message{
+  display:none;
+  margin-top:20px;
+  animation:fade .8s ease;
+}
+.heart{
+  position:fixed;
+  bottom:-30px;
+  font-size:22px;
+  animation:float 6s linear infinite;
+  opacity:.7;
+}
+@keyframes appear{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div style="font-size:52px">🎂✨</div>
+  <h1>Happy Birthday!</h1>
+  <h2>For Someone Special</h2>
+
+  <p>
+    I hope your birthday brings you lots of happiness,
+    peaceful moments and beautiful memories.
+  </p>
+
+  <p>
+    Life has taken us in different directions, but I still
+    genuinely wish the best for you.
+  </p>
+
+  <button onclick="showMessage()">Open a little message 💌</button>
+
+  <div id="message">
+    <p>
+      You don't have to reply to this.<br>
+      I just wanted to wish you a very Happy Birthday.
+      Take care of yourself and have a wonderful year ahead. 🌸
+    </p>
+  </div>
+
+  <div class="small">Made with good wishes • 16 September 🎈</div>
+</div>
+
+<script>
+function showMessage(){
+  document.getElementById("message").style.display="block";
+}
+for(let i=0;i<18;i++){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.textContent=["♡","✦","✨","♥"][Math.floor(Math.random()*4)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDelay=Math.random()*5+"s";
+  h.style.animationDuration=(5+Math.random()*4)+"s";
+  document.body.appendChild(h);
+}
+</script>
+
+</body>
+</html>
